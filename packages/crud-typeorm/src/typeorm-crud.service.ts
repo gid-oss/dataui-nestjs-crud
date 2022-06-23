@@ -8,7 +8,7 @@ import {
   JoinOption,
   JoinOptions,
   QueryOptions,
-} from '@dataui/crud';
+} from '@lab3dvlp/crud';
 import {
   ComparisonOperator,
   ParsedRequestParams,
@@ -17,7 +17,7 @@ import {
   QuerySort,
   SCondition,
   SConditionKey,
-} from '@dataui/crud-request';
+} from '@lab3dvlp/crud-request';
 import {
   ClassType,
   hasLength,
@@ -27,7 +27,7 @@ import {
   isObject,
   isUndefined,
   objKeys,
-} from '@dataui/crud-util';
+} from '@lab3dvlp/crud-util';
 import { oO } from '@zmotivat0r/o0';
 import { plainToInstance } from 'class-transformer';
 import {

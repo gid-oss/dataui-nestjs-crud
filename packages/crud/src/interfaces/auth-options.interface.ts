@@ -1,5 +1,5 @@
-import { SCondition } from '@dataui/crud-request/lib/types/request-query.types';
-import { ObjectLiteral } from 'crud-util/src';
+import { SCondition } from '@lab3dvlp/crud-request';
+import { ObjectLiteral } from '@lab3dvlp/crud-util';
 
 export interface AuthGlobalOptions {
   property?: string;

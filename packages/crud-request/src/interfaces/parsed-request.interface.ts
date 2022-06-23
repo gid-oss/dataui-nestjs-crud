@@ -1,4 +1,4 @@
-import { ObjectLiteral } from '@dataui/crud-util';
+import { ObjectLiteral } from '@lab3dvlp/crud-util';
 import { QueryFields, QueryFilter, QueryJoin, QuerySort, SCondition } from '../types';
 
 export interface ParsedRequestParams {

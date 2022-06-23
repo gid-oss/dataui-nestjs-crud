@@ -10,8 +10,8 @@ import {
   RequestQueryException,
   RequestQueryParser,
   SCondition,
-} from '@dataui/crud-request';
-import { hasLength, isArrayFull, isFunction, isNil } from '@dataui/crud-util';
+} from '@lab3dvlp/crud-request';
+import { hasLength, isArrayFull, isFunction, isNil } from '@lab3dvlp/crud-util';
 
 import { PARSED_CRUD_REQUEST_KEY } from '../constants';
 import { CrudActions } from '../enums';

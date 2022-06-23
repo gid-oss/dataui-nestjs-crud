@@ -4,7 +4,7 @@ import {
   Injectable,
   NestInterceptor,
 } from '@nestjs/common';
-import { isFalse, isObject, isFunction } from '@dataui/crud-util';
+import { isFalse, isObject, isFunction } from '@lab3dvlp/crud-util';
 import { classToPlain, classToPlainFromExist } from 'class-transformer';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';

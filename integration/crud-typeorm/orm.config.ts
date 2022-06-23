@@ -1,6 +1,6 @@
 import { join } from 'path';
 import { DataSourceOptions } from 'typeorm';
-import { isNil } from '@dataui/crud-util';
+import { isNil } from '@lab3dvlp/crud-util';
 
 const type = (process.env.TYPEORM_CONNECTION as any) || 'postgres';
 

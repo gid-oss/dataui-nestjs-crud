@@ -1,4 +1,4 @@
-import { CrudValidationGroups } from '@dataui/crud';
+import { CrudValidationGroups } from '@lab3dvlp/crud';
 import { Entity, Column, OneToMany, PrimaryGeneratedColumn, DeleteDateColumn } from 'typeorm';
 import {
   IsOptional,

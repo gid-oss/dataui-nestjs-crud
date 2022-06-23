@@ -1,5 +1,5 @@
 {
-  "name": "@dataui/crud-util",
+  "name": "@lab3dvlp/crud-util",
   "description": "NestJs CRUD for RESTful APIs - util",
   "version": "5.2.0-alpha.1",
   "license": "MIT",

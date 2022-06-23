@@ -10,7 +10,7 @@ import {
   isStringFull,
   ObjectLiteral,
   objKeys,
-} from '@dataui/crud-util';
+} from '@lab3dvlp/crud-util';
 
 import { RequestQueryException } from './exceptions';
 import {

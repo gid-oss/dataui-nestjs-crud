@@ -1,7 +1,7 @@
 import {
   QueryFilter,
   SCondition,
-} from '@dataui/crud-request/lib/types/request-query.types';
+} from '@lab3dvlp/crud-request/lib/types/request-query.types';
 
 export type QueryFilterFunction = (
   search?: SCondition,

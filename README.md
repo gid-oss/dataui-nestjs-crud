@@ -17,11 +17,11 @@
   <a href="https://github.com/dataui/crud/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/dataui/crud.svg" alt="License" />
   </a>
-  <a href="https://www.npmjs.com/package/@dataui/crud">
-    <img src="https://img.shields.io/npm/v/@dataui/crud.svg" alt="npm version" />
+  <a href="https://www.npmjs.com/package/@lab3dvlp/crud">
+    <img src="https://img.shields.io/npm/v/@lab3dvlp/crud.svg" alt="npm version" />
   </a>
   <a href="https://www.npmjs.com/org/nestjsx">
-    <img src="https://img.shields.io/npm/dm/@dataui/crud.svg" alt="npm downloads" />
+    <img src="https://img.shields.io/npm/dm/@lab3dvlp/crud.svg" alt="npm downloads" />
   </a>
   <a href="https://npm.packagequality.com/#?package=@nestjsx%2Fcrud">
     <img src="https://npm.packagequality.com/shield/%40nestjsx%2Fcrud.svg" alt="Package Quality" />
@@ -62,7 +62,7 @@
 
 <br />
 
-We believe that everyone who's working with NestJs and building some RESTful services and especially some CRUD functionality will find `@dataui/crud` microframework very useful.
+We believe that everyone who's working with NestJs and building some RESTful services and especially some CRUD functionality will find `@lab3dvlp/crud` microframework very useful.
 
 ## Features
 
@@ -90,13 +90,13 @@ We believe that everyone who's working with NestJs and building some RESTful ser
 
 Still in alpha you can install via :
 
-  yarn add @dataui/crud-typeorm@5.2.0-alpha.0
+  yarn add @lab3dvlp/crud-typeorm@5.2.0-alpha.0
 
 ## Packages
 
-- [**@dataui/crud**](https://www.npmjs.com/package/@dataui/crud) - core package which provides `@Crud()` decorator for endpoints generation, global configuration, validation, helper decorators ([docs](https://github.com/dataui/crud/wiki/Controllers#description))
-- [**@dataui/crud-request**](https://www.npmjs.com/package/@dataui/crud-request) - request builder/parser package which provides `RequestQueryBuilder` class for a frontend usage and `RequestQueryParser` that is being used internally for handling and validating query/path params on a backend side ([docs](https://github.com/dataui/crud/wiki/Requests#frontend-usage))
-- [**@dataui/crud-typeorm**](https://www.npmjs.com/package/@dataui/crud-typeorm) - TypeORM package which provides base `TypeOrmCrudService` with methods for CRUD database operations ([docs](https://github.com/dataui/crud/wiki/ServiceTypeorm))
+- [**@lab3dvlp/crud**](https://www.npmjs.com/package/@lab3dvlp/crud) - core package which provides `@Crud()` decorator for endpoints generation, global configuration, validation, helper decorators ([docs](https://github.com/dataui/crud/wiki/Controllers#description))
+- [**@lab3dvlp/crud-request**](https://www.npmjs.com/package/@lab3dvlp/crud-request) - request builder/parser package which provides `RequestQueryBuilder` class for a frontend usage and `RequestQueryParser` that is being used internally for handling and validating query/path params on a backend side ([docs](https://github.com/dataui/crud/wiki/Requests#frontend-usage))
+- [**@lab3dvlp/crud-typeorm**](https://www.npmjs.com/package/@lab3dvlp/crud-typeorm) - TypeORM package which provides base `TypeOrmCrudService` with methods for CRUD database operations ([docs](https://github.com/dataui/crud/wiki/ServiceTypeorm))
 
 ## Documentation
 

@@ -1,7 +1,7 @@
 import { Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import { Crud, OperatorsOptions, CustomOperators } from '@dataui/crud';
+import { Crud, OperatorsOptions, CustomOperators } from '@lab3dvlp/crud';
 
 import { Project } from './project.entity';
 import { ProjectsService } from './projects.service';

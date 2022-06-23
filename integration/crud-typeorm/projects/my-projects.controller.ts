@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { Crud, CrudAuth } from '@dataui/crud';
+import { Crud, CrudAuth } from '@lab3dvlp/crud';
 
 import { User } from '../users/user.entity';
 import { UserProject } from './user-project.entity';

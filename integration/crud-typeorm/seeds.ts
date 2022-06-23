@@ -1,4 +1,4 @@
-import { ClassType } from '@dataui/crud-util';
+import { ClassType } from '@lab3dvlp/crud-util';
 import { plainToClass } from 'class-transformer';
 import { MigrationInterface, Repository, QueryRunner } from 'typeorm';
 import { Company } from './companies';

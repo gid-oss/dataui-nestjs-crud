@@ -1,6 +1,6 @@
 import { BadRequestException, NotFoundException } from '@nestjs/common';
-import { ParsedRequestParams } from '@dataui/crud-request';
-import { objKeys } from '@dataui/crud-util';
+import { ParsedRequestParams } from '@lab3dvlp/crud-request';
+import { objKeys } from '@lab3dvlp/crud-util';
 
 import {
   CreateManyDto,

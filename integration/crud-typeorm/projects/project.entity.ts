@@ -7,7 +7,7 @@ import {
   IsDefined,
   IsBoolean,
 } from 'class-validator';
-import { CrudValidationGroups } from '@dataui/crud';
+import { CrudValidationGroups } from '@lab3dvlp/crud';
 
 import { BaseEntity } from '../base-entity';
 import { Company } from '../companies/company.entity';

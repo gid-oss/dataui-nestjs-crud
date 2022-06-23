@@ -1,4 +1,4 @@
-import { SerializeOptions } from '@dataui/crud';
+import { SerializeOptions } from '@lab3dvlp/crud';
 import { DeleteDeviceResponseDto } from './delete-device-response.dto';
 
 export const serialize: SerializeOptions = {

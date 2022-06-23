@@ -2,7 +2,7 @@ import { BadRequestException, Controller, INestApplication } from '@nestjs/commo
 import { APP_FILTER } from '@nestjs/core';
 import { Test } from '@nestjs/testing';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { RequestQueryBuilder } from '@dataui/crud-request';
+import { RequestQueryBuilder } from '@lab3dvlp/crud-request';
 import 'jest-extended';
 import * as request from 'supertest';
 

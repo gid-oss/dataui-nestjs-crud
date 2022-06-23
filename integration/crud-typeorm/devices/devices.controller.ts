@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { Crud } from '@dataui/crud';
+import { Crud } from '@lab3dvlp/crud';
 
 import { Device } from './device.entity';
 import { DevicesService } from './devices.service';

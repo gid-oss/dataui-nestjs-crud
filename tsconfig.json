@@ -15,14 +15,14 @@
     "composite": true,
     "baseUrl": "./packages",
     "paths": {
-      "@dataui/crud": ["crud/src"],
-      "@dataui/crud-typeorm": ["crud-typeorm/src"],
-      "@dataui/crud-request": ["crud-request/src"],
-      "@dataui/crud-util": ["crud-util/src"],
-      "@dataui/crud/*": ["crud/src/*"],
-      "@dataui/crud-typeorm/*": ["crud-typeorm/src/*"],
-      "@dataui/crud-request/*": ["crud-request/src/*"],
-      "@dataui/crud-util/*": ["crud-util/src/*"]
+      "@lab3dvlp/crud": ["crud/src"],
+      "@lab3dvlp/crud-typeorm": ["crud-typeorm/src"],
+      "@lab3dvlp/crud-request": ["crud-request/src"],
+      "@lab3dvlp/crud-util": ["crud-util/src"],
+      "@lab3dvlp/crud/*": ["crud/src/*"],
+      "@lab3dvlp/crud-typeorm/*": ["crud-typeorm/src/*"],
+      "@lab3dvlp/crud-request/*": ["crud-request/src/*"],
+      "@lab3dvlp/crud-util/*": ["crud-util/src/*"]
     }
   },
   "references": [

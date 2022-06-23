@@ -11,7 +11,7 @@ import {
   isObjectFull,
   isUndefined,
   objKeys,
-} from '@dataui/crud-util';
+} from '@lab3dvlp/crud-util';
 import * as deepmerge from 'deepmerge';
 
 import { CrudActions, CrudValidationGroups } from '../enums';
