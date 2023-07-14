@@ -51,7 +51,7 @@ interface IAllowedRelation {
   allowedColumns: string[];
 }
 
-export class TypeOrmCrudService<T> extends CrudService<T, DeepPartial<T>> {
+export class TypeOrmCrudService<T extends ObjectLiteral> extends CrudService<T, DeepPartial<T>> {
   protected dbName: ConnectionOptions['type'];
   protected entityColumns: string[];
   protected entityPrimaryColumns: string[];
