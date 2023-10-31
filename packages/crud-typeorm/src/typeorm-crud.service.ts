@@ -1064,7 +1064,8 @@ export class TypeOrmCrudService<T> extends CrudService<T, DeepPartial<T>> {
     const likeOperator =
       this.dbName === 'postgres' ? 'ILIKE' : /* istanbul ignore next */ 'LIKE';
     let str: string;
-    let params: ObjectLiteral;
+    // NOTE: may be overridden by specific operators
+    let params: ObjectLiteral = { [param]: cond.value };
 
     if (cond.operator[0] !== '$') {
       cond.operator = ('$' + cond.operator) as ComparisonOperator;
@@ -1183,6 +1184,16 @@ export class TypeOrmCrudService<T> extends CrudService<T, DeepPartial<T>> {
         str = `LOWER(${field}) NOT IN (:...${param})`;
         break;
 
+      case '$contArr':
+        this.checkFilterIsArray(cond);
+        str = `${field} @> ARRAY[:...${param}]`;
+        break;
+
+      case '$intersectsArr':
+        this.checkFilterIsArray(cond);
+        str = `${field} && ARRAY[:...${param}]`;
+        break;
+
       /* istanbul ignore next */
       default:
         const customOperator = customOperators[cond.operator];
@@ -1201,10 +1212,6 @@ export class TypeOrmCrudService<T> extends CrudService<T, DeepPartial<T>> {
           this.throwBadRequestException(`Invalid custom operator '${field}' query`);
         }
         break;
-    }
-
-    if (typeof params === 'undefined') {
-      params = { [param]: cond.value };
     }
 
     return { str, params };

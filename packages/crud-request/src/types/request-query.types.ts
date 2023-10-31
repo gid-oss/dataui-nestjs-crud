@@ -42,7 +42,9 @@ type DeprecatedCondOperator =
   | 'notin'
   | 'isnull'
   | 'notnull'
-  | 'between';
+  | 'between'
+  | 'contArr'
+  | 'intersectsArr';
 
 export enum CondOperator {
   EQUALS = '$eq',
@@ -68,6 +70,8 @@ export enum CondOperator {
   EXCLUDES_LOW = '$exclL',
   IN_LOW = '$inL',
   NOT_IN_LOW = '$notinL',
+  CONTAINS_ARRAY = '$contArr',
+  INTERSECTS_ARRAY = '$intersectsArr',
 }
 
 export type ComparisonOperator = DeprecatedCondOperator | keyof SFieldOperator | string;
@@ -75,32 +79,36 @@ export type ComparisonOperator = DeprecatedCondOperator | keyof SFieldOperator |
 // new search
 export type SPrimitivesVal = string | number | boolean;
 
-export type SFiledValues = SPrimitivesVal | SPrimitivesVal[];
+export type SFieldValues = SPrimitivesVal | Array<SPrimitivesVal>;
+// DEPRECATED: remove before next major release (or other breaking change)
+export type SFiledValues = SFieldValues;
 
 export interface SFieldOperator {
-  $eq?: SFiledValues;
-  $ne?: SFiledValues;
-  $gt?: SFiledValues;
-  $lt?: SFiledValues;
-  $gte?: SFiledValues;
-  $lte?: SFiledValues;
-  $starts?: SFiledValues;
-  $ends?: SFiledValues;
-  $cont?: SFiledValues;
-  $excl?: SFiledValues;
-  $in?: SFiledValues;
-  $notin?: SFiledValues;
-  $between?: SFiledValues;
-  $isnull?: SFiledValues;
-  $notnull?: SFiledValues;
-  $eqL?: SFiledValues;
-  $neL?: SFiledValues;
-  $startsL?: SFiledValues;
-  $endsL?: SFiledValues;
-  $contL?: SFiledValues;
-  $exclL?: SFiledValues;
-  $inL?: SFiledValues;
-  $notinL?: SFiledValues;
+  $eq?: SFieldValues;
+  $ne?: SFieldValues;
+  $gt?: SFieldValues;
+  $lt?: SFieldValues;
+  $gte?: SFieldValues;
+  $lte?: SFieldValues;
+  $starts?: SFieldValues;
+  $ends?: SFieldValues;
+  $cont?: SFieldValues;
+  $excl?: SFieldValues;
+  $in?: SFieldValues;
+  $notin?: SFieldValues;
+  $between?: SFieldValues;
+  $isnull?: SFieldValues;
+  $notnull?: SFieldValues;
+  $eqL?: SFieldValues;
+  $neL?: SFieldValues;
+  $startsL?: SFieldValues;
+  $endsL?: SFieldValues;
+  $contL?: SFieldValues;
+  $exclL?: SFieldValues;
+  $inL?: SFieldValues;
+  $notinL?: SFieldValues;
+  $contArr?: Array<SPrimitivesVal>;
+  $intersectsArr?: Array<SPrimitivesVal>;
   $or?: SFieldOperator;
   $and?: never;
   $not?: never;
@@ -109,7 +117,7 @@ export interface SFieldOperator {
 export type SField =
   | SPrimitivesVal
   | SFieldOperator
-  | { [$custom: string]: SFiledValues };
+  | { [$custom: string]: SFieldValues };
 
 export interface SFields {
   [key: string]: SField | Array<SFields | SConditionAND | SConditionNOT> | undefined;
