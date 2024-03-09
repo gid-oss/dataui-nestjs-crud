@@ -9,7 +9,7 @@
 
 <div align="center">
   <a href="https://travis-ci.org/dataui/crud">
-    <img src="https://github.com/dataui/crud/workflows/Tests/badge.svg" alt="Build" />
+    <img src="https://github.com/nestjsx/crud/workflows/Tests/badge.svg" alt="Build" />
   </a>
   <a href="https://coveralls.io/github/dataui/crud?branch=master">
     <img src="https://coveralls.io/repos/github/dataui/crud/badge.svg" alt="Coverage" />
@@ -23,9 +23,6 @@
   <a href="https://www.npmjs.com/org/nestjsx">
     <img src="https://img.shields.io/npm/dm/@dataui/crud.svg" alt="npm downloads" />
   </a>
-  <a href="https://npm.packagequality.com/#?package=@nestjsx%2Fcrud">
-    <img src="https://npm.packagequality.com/shield/%40nestjsx%2Fcrud.svg" alt="Package Quality" />
-  </a>
   <a href="https://renovatebot.com/">
     <img src="https://img.shields.io/badge/renovate-enabled-brightgreen.svg" alt="Renovate" />
   </a>
@@ -33,13 +30,13 @@
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs welcome" />
   </a>
   <a href="https://github.com/marmelab/awesome-rest#nodejs">
-    <img src="https://raw.githubusercontent.com/dataui/crud/master/img/awesome-rest.svg?sanitize=true" alt="Awesome REST" />
+    <img src="https://raw.githubusercontent.com/gid-oss/dataui-nestjs-crud/master/img/awesome-rest.svg?sanitize=true" alt="Awesome REST" />
   </a>
   <a href="https://github.com/juliandavidmr/awesome-nestjs#components--libraries">
-    <img src="https://raw.githubusercontent.com/dataui/crud/master/img/awesome-nest.svg?sanitize=true" alt="Awesome Nest" />
+    <img src="https://raw.githubusercontent.com/gid-oss/dataui-nestjs-crud/master/img/awesome-nest.svg?sanitize=true" alt="Awesome Nest" />
   </a>
   <a href="https://github.com/nestjs/nest">
-    <img src="https://raw.githubusercontent.com/dataui/crud/master/img/nest-powered.svg?sanitize=true" alt="Nest Powered" />
+    <img src="https://raw.githubusercontent.com/gid-oss/dataui-nestjs-crud/master/img/nest-powered.svg?sanitize=true" alt="Nest Powered" />
   </a>
   <a href="#individuals" alt="Sponsors on Open Collective">
     <img src="https://opencollective.com/nestjsx/backers/badge.svg" />
@@ -63,7 +60,7 @@ We believe that everyone who's working with NestJs and building some RESTful ser
 
 ## Features
 
-<img align="right" src="https://raw.githubusercontent.com/dataui/crud/master/img/crud-usage2.png" alt="CRUD usage" />
+<img align="right" src="https://raw.githubusercontent.com/gid-oss/dataui-nestjs-crud/master/img/crud-usage2.png" alt="CRUD usage" />
 
 - Super easy to install and start using the full-featured controllers and services :point_right:
 
@@ -91,16 +88,16 @@ npm i @dataui/crud-typeorm @nestjs/typeorm typeorm
 
 ## Packages
 
-- [**@dataui/crud**](https://www.npmjs.com/package/@dataui/crud) - core package which provides `@Crud()` decorator for endpoints generation, global configuration, validation, helper decorators ([docs](https://github.com/dataui/crud/wiki/Controllers#description))
-- [**@dataui/crud-request**](https://www.npmjs.com/package/@dataui/crud-request) - request builder/parser package which provides `RequestQueryBuilder` class for a frontend usage and `RequestQueryParser` that is being used internally for handling and validating query/path params on a backend side ([docs](https://github.com/dataui/crud/wiki/Requests#frontend-usage))
-- [**@dataui/crud-typeorm**](https://www.npmjs.com/package/@dataui/crud-typeorm) - TypeORM package which provides base `TypeOrmCrudService` with methods for CRUD database operations ([docs](https://github.com/dataui/crud/wiki/ServiceTypeorm))
+- [**@dataui/crud**](https://www.npmjs.com/package/@dataui/crud) - core package which provides `@Crud()` decorator for endpoints generation, global configuration, validation, helper decorators ([docs](https://gid-oss.github.io/dataui-nestjs-crud/controllers/#description))
+- [**@dataui/crud-request**](https://www.npmjs.com/package/@dataui/crud-request) - request builder/parser package which provides `RequestQueryBuilder` class for a frontend usage and `RequestQueryParser` that is being used internally for handling and validating query/path params on a backend side ([docs](https://gid-oss.github.io/dataui-nestjs-crud/requests/#frontend-usage))
+- [**@dataui/crud-typeorm**](https://www.npmjs.com/package/@dataui/crud-typeorm) - TypeORM package which provides base `TypeOrmCrudService` with methods for CRUD database operations ([docs](https://gid-oss.github.io/dataui-nestjs-crud/service-typeorm/))
 
 ## Documentation
 
-- [General Information](https://github.com/dataui/crud/wiki#why)
-- [CRUD Controllers](https://github.com/dataui/crud/wiki/Controllers#description)
-- [CRUD ORM Services](https://github.com/dataui/crud/wiki/Services#description)
-- [Handling Requests](https://github.com/dataui/crud/wiki/Requests#description)
+- [General Information](https://gid-oss.github.io/dataui-nestjs-crud/)
+- [CRUD Controllers](https://gid-oss.github.io/dataui-nestjs-crud/controllers/#description)
+- [CRUD ORM Services](https://gid-oss.github.io/dataui-nestjs-crud/services/)
+- [Handling Requests](https://gid-oss.github.io/dataui-nestjs-crud/requests/#description)
 
 ## Support
 
