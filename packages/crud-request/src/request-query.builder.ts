@@ -109,7 +109,7 @@ export class RequestQueryBuilder {
       this.queryObject[this.paramNames.filter] = undefined;
       this.queryObject[this.paramNames.or] = undefined;
     }
-    this.queryString = stringify(this.queryObject, { encode });
+    this.queryString = stringify(this.queryObject, { encode, indices: false });
     return this.queryString;
   }
 
