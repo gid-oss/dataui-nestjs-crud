@@ -1072,8 +1072,9 @@ export class TypeOrmCrudService<T> extends CrudService<T, DeepPartial<T>> {
     customOperators: CustomOperators = {},
   ): { str: string; params: ObjectLiteral } {
     const field = this.getFieldWithAlias(cond.field);
-    const likeOperator =
-      this.dbName === 'postgres' ? 'ILIKE' : /* istanbul ignore next */ 'LIKE';
+    const isPostgres = this.dbName === 'postgres';
+    const isSQLite = this.dbName === 'better-sqlite3';
+    const likeOperator = isPostgres ? 'ILIKE' : /* istanbul ignore next */ 'LIKE';
     let str: string;
     // NOTE: may be overridden by specific operators
     let params: ObjectLiteral = { [param]: cond.value };
@@ -1195,16 +1196,56 @@ export class TypeOrmCrudService<T> extends CrudService<T, DeepPartial<T>> {
         str = `LOWER(${field}) NOT IN (:...${param})`;
         break;
 
-      case '$contArr':
+      case '$notinL':
         this.checkFilterIsArray(cond);
-        str = `${field} @> ARRAY[:...${param}]::${this.getColumnType(cond.field)}[]`;
+        str = `LOWER(${field}) NOT IN (:...${param})`;
         break;
-
-      case '$intersectsArr':
+      case '$contArr': {
         this.checkFilterIsArray(cond);
-        str = `${field} && ARRAY[:...${param}]::${this.getColumnType(cond.field)}[]`;
-        break;
 
+        if (isPostgres) {
+          // PostgreSQL: Use the @> operator for arrays
+          str = `${field} @> ARRAY[:...${param}]`;
+          params[param] = cond.value;
+        } else if (isSQLite) {
+          // SQLite: we check whether the values are present in a comma separated string
+          const conditions = cond.value.map((v, i) => {
+            const paramName = `${param}${i}`;
+            params[paramName] = `%,${v},%`; // Search for value between commas
+            return `(',' || ${field} || ',') LIKE :${paramName}`;
+          });
+          str = conditions.join(' AND '); // All elements must be contained
+        } else {
+          this.throwBadRequestException(
+            `$contArr operator is not supported by ${this.dbName}`,
+          );
+        }
+        break;
+      }
+
+      // $intersectsArr: Check if any array element is contained
+      case '$intersectsArr': {
+        this.checkFilterIsArray(cond);
+
+        if (isPostgres) {
+          // PostgreSQL: Use the && operator for arrays
+          str = `${field} && ARRAY[:...${param}]`;
+          params[param] = cond.value;
+        } else if (isSQLite) {
+          // SQLite: we check whether the values are present in a comma separated string
+          const conditions = cond.value.map((v, i) => {
+            const paramName = `${param}${i}`;
+            params[paramName] = `%,${v},%`; // Search for value between commas
+            return `(',' || ${field} || ',') LIKE :${paramName}`;
+          });
+          str = conditions.join(' OR '); // Any element must be contained
+        } else {
+          this.throwBadRequestException(
+            `$intersectsArr operator is not supported by ${this.dbName}`,
+          );
+        }
+        break;
+      }
       /* istanbul ignore next */
       default:
         const customOperator = customOperators[cond.operator];
@@ -1256,7 +1297,9 @@ export class TypeOrmCrudService<T> extends CrudService<T, DeepPartial<T>> {
   }
 
   protected getColumnType(field: string): ColumnType {
-    const column = this.repo.metadata.ownColumns.find((col) => col.propertyName === field);
+    const column = this.repo.metadata.ownColumns.find(
+      (col) => col.propertyName === field,
+    );
     return column.type;
   }
 }
