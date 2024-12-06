@@ -356,14 +356,14 @@ export class RequestQueryParser implements ParsedRequestParams {
   }
 
   private parseJoinConditions(conditionsString: string): QueryFilter[] {
-    const conditions: string[] = parse(conditionsString, this._joinConditionParseOptions)[
-      'on'
-    ];
+    const conditions: string[] = parse(conditionsString)['on'];
+
     return conditions.map((cond: string) => this.conditionParser('filter', {}, cond));
   }
 
   private joinParser(data: string): QueryJoin {
     const param = data.split(this._options.delim);
+
     const field = param[0];
     const selectString = param[1];
     const conditions = param.slice(2).join(this._options.delim);
