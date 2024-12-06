@@ -356,6 +356,7 @@ qb.select(['foo', 'bar'])
     on: [
       { field: 'bar', operator: 'eq', value: 100 },
       { field: 'baz', operator: 'isnull' },
+      { field: 'date', operator: 'between', value: ['2023-01-01', '2023-12-31'] },
     ],
   })
   .sortBy({ field: 'bar', order: 'DESС' })
