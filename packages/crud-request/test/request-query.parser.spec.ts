@@ -264,7 +264,7 @@ describe('#request-query', () => {
             join: [
               'foo',
               'bar||baz,boo',
-              'bar||baz,boo||on[0]=name||eq||jhon,on[1]=foo||isnull',
+              'bar||baz,boo||on[0]=name||eq||jhon&on[1]=foo||isnull',
             ],
           };
           const expected: QueryJoin[] = [
@@ -284,6 +284,45 @@ describe('#request-query', () => {
           expect(test.join[0]).toMatchObject(expected[0]);
           expect(test.join[1]).toMatchObject(expected[1]);
           expect(test.join[2]).toMatchObject(expected[2]);
+        });
+        it('should set array, 4', () => {
+          const query = {
+            join: [
+              'foo',
+              'bar||baz,boo',
+              'bar||baz,boo||on[0]=name||eq||jhon&on[1]=foo||isnull',
+              'qux||qubaz,quboo||on[0]=quux||between||06-12-2023,12-12-2023',
+            ],
+          };
+          const expected: QueryJoin[] = [
+            { field: 'foo' },
+            { field: 'bar', select: ['baz', 'boo'] },
+            {
+              field: 'bar',
+              select: ['baz', 'boo'],
+              on: [
+                { field: 'name', operator: 'eq', value: 'jhon' },
+                { field: 'foo', operator: 'isnull', value: '' },
+              ],
+            },
+            {
+              field: 'qux',
+              select: ['qubaz', 'quboo'],
+              on: [
+                {
+                  field: 'quux',
+                  operator: 'between',
+                  value: ['06-12-2023', '12-12-2023'],
+                },
+              ],
+            },
+          ];
+          const test = qp.parseQuery(query);
+
+          expect(test.join[0]).toMatchObject(expected[0]);
+          expect(test.join[1]).toMatchObject(expected[1]);
+          expect(test.join[2]).toMatchObject(expected[2]);
+          expect(test.join[3]).toMatchObject(expected[3]);
         });
       });
 
