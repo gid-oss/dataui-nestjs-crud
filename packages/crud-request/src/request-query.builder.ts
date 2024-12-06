@@ -60,7 +60,7 @@ export class RequestQueryBuilder {
   } = {};
   private joinConditionString: IStringifyOptions = {
     encode: false,
-    delimiter: this.options.delimStr,
+    delimiter: '&',
     arrayFormat: 'indices',
   };
   public queryObject: { [key: string]: any } = {};

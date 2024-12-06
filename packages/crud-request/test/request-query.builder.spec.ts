@@ -223,7 +223,24 @@ describe('#request-query', () => {
             ],
           },
         ]);
-        const expected = ['baz||a,b,c||on[0]=bar||eq||100,on[1]=foo||isnull'];
+        const expected = ['baz||a,b,c||on[0]=bar||eq||100&on[1]=foo||isnull'];
+        expect(qb.queryObject.join).toIncludeSameMembers(expected);
+      });
+      it('should set join, 9', () => {
+        qb.setJoin([
+          {
+            field: 'qux',
+            select: ['a', 'b', 'c'],
+            on: [
+              { field: 'bar', operator: 'eq', value: 100 },
+              { field: 'foo', operator: 'isnull' },
+              { field: 'date', operator: 'between', value: ['2023-12-06', '2023-12-12'] },
+            ],
+          },
+        ]);
+        const expected = [
+          'qux||a,b,c||on[0]=bar||eq||100&on[1]=foo||isnull&on[2]=date||between||2023-12-06,2023-12-12',
+        ];
         expect(qb.queryObject.join).toIncludeSameMembers(expected);
       });
     });
@@ -384,6 +401,7 @@ describe('#request-query', () => {
             on: [
               { field: 'foo', operator: 'eq', value: 'baz' },
               { field: 'bar', operator: 'isnull' },
+              { field: 'qux', operator: 'between', value: [1000, 8000] },
             ],
           })
           .setLimit(1)
@@ -394,7 +412,7 @@ describe('#request-query', () => {
           .setIncludeDeleted(1)
           .query(false);
         const expected =
-          'fields=foo,bar&filter[0]=is||notnull&or[0]=ok||ne||false&join[0]=voo||h,data||on[0]=foo||eq||baz,on[1]=bar||isnull&limit=1&offset=2&page=3&sort[0]=foo,DESC&cache=0&include_deleted=1';
+          'fields=foo,bar&filter[0]=is||notnull&or[0]=ok||ne||false&join[0]=voo||h,data||on[0]=foo||eq||baz&on[1]=bar||isnull&on[2]=qux||between||1000,8000&limit=1&offset=2&page=3&sort[0]=foo,DESC&cache=0&include_deleted=1';
         expect(test).toBe(expected);
       });
     });
@@ -437,6 +455,7 @@ describe('#request-query', () => {
             on: [
               { field: 'foo', operator: 'eq', value: 'baz' },
               { field: 'bar', operator: 'isnull' },
+              { field: 'qux', operator: 'between', value: [1000, 8000] },
             ],
           },
           limit: 1,
@@ -446,7 +465,7 @@ describe('#request-query', () => {
           resetCache: true,
         }).query(false);
         const expected =
-          'fields=foo,bar&filter[0]=is||notnull&or[0]=ok||ne||false&join[0]=voo||h,data||on[0]=foo||eq||baz,on[1]=bar||isnull&limit=1&offset=2&page=3&sort[0]=foo,DESC&cache=0';
+          'fields=foo,bar&filter[0]=is||notnull&or[0]=ok||ne||false&join[0]=voo||h,data||on[0]=foo||eq||baz&on[1]=bar||isnull&on[2]=qux||between||1000,8000&limit=1&offset=2&page=3&sort[0]=foo,DESC&cache=0';
         expect(test).toBe(expected);
       });
       it('should return a valid query string, 2', () => {

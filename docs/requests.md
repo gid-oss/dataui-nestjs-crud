@@ -222,7 +222,7 @@ _Examples:_
 
 The join parameter now supports specifying a WHERE condition within the ON clause of the join using the on property. This allows for more granular control over the joined data.
 
-> ?join[]=**relation**||**field1**,**field2**,...||on[0]=**field**||**\$condition**||**value**,on[1]=**field**||**\$condition**...&join[]=...
+> ?join[]=**relation**||**field1**,**field2**,...||on[0]=**field**||**\$condition**||**value**&on[1]=**field**||**\$condition**...&join[]=...
 
 _Examples:_
 
@@ -356,6 +356,7 @@ qb.select(['foo', 'bar'])
     on: [
       { field: 'bar', operator: 'eq', value: 100 },
       { field: 'baz', operator: 'isnull' },
+      { field: 'date', operator: 'between', value: ['2023-01-01', '2023-12-31'] },
     ],
   })
   .sortBy({ field: 'bar', order: 'DESС' })
